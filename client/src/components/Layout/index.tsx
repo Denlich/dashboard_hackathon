@@ -1,4 +1,4 @@
-import Header from "../Header";
+import Header from "../Header/Header";
 import Navbar from "../Navbar";
 import { Outlet } from "react-router-dom";
 
