@@ -1,0 +1,11 @@
+.subject {
+  display: flex;
+  align-items: center;
+}
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  margin-right: 10px
+}

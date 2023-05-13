@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.navbar > h1 {
+  padding-block: 25px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}

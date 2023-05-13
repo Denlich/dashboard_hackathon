@@ -1,0 +1,34 @@
+.grid {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  padding-block: 25px;
+}
+
+form {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.button {
+  background-color: #F5F8FB;
+  border: none;
+  padding: 15px 25px;
+}
+
+input[type="search"] {
+  flex: 1;
+  background-color: #F5F8FB;
+  color: #000;
+  border: none;
+  padding-left: 25px;
+}
+
+input[type="search"]:focus {
+  outline: none;
+}
+
+input[type="search"]::placeholder {
+  color: #666;
+}
