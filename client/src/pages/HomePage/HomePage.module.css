@@ -1,0 +1,13 @@
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.heading {
+    flex: 1 1 auto;
+}
+
+select {
+    flex: 0 0 10%;
+}
