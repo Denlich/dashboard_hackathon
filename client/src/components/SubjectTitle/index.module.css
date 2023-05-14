@@ -1,6 +1,7 @@
 .subject {
   display: flex;
   align-items: center;
+  flex: 1 1 60%;
 }
 
 .circle {

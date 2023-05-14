@@ -1,14 +1,18 @@
-import style from "./CreateSubject.module.css";
+import style from "../../Subjects/CreateSubject/CreateSubject.module.css";
+import Button from "../../UI/Button";
 import {FieldValues, useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import Button from "../../UI/Button";
+import {ITask} from "../../../common/enitity/ITask";
+import Grade from "../Grade/Grade";
 import FormFormat, {schema} from "../Schema/schema";
+import Date from "../Date/Date";
 
 interface Props {
+    task: ITask;
     onSubmit: (subject: FieldValues) => void;
 }
 
-const CreateSubject = ({onSubmit}: Props) => {
+const UpdateTask = ({task, onSubmit}: Props) => {
 
     const {
         register,
@@ -25,41 +29,42 @@ const CreateSubject = ({onSubmit}: Props) => {
             >
                 {errors.name && <div className={style.error}>{errors.name.message}</div>}
                 <div className={style.raw}>
-                    <span className={style.label}>Назва</span>
+                    <span className={style.label}>{task.name}</span>
                     <input
                         {...register("name")}
                         className={style.input}
                         type="text"
-                        placeholder="Введіть назву"
+                        placeholder="Введіть нову назву"
                     />
                 </div>
 
-                {errors.desc && <div className={style.error}>{errors.desc.message}</div>}
+                {errors.deadline && <div className={style.error}>{errors.deadline.message}</div>}
                 <div className={style.raw}>
-                    <span className={style.label}>Опис</span>
+                    <span className={style.label}><Date date={task.deadline}/></span>
                     <input
-                        {...register("desc")}
+                        type="date"
+                        {...register("deadline")}
                         className={style.input}
-                        type="text"
                         placeholder="Введіть назву"
                     />
                 </div>
 
-                {errors.grade && <div className={style.error}>{errors.grade?.message}</div>}
+                {errors.points && <div className={style.error}>{errors.points?.message}</div>}
                 <div className={style.raw}>
-                    <span className={style.label}>Максимум балів</span>
+                    <span className={style.label}><Grade grade={task.points}/></span>
                     <input
-                        {...register("grade", {valueAsNumber: true})}
+                        {...register("points", {valueAsNumber: true})}
                         className={style.input}
                         type="number"
-                        placeholder="Введіть число"
+                        placeholder="Введіть нову оцінку"
                     />
                 </div>
 
-                <Button color="blue">Створити</Button>
+                <Button color="blue" handleClick={() => console.log("Обновити")}>Обновити</Button>
             </form>
         </>
     );
 };
 
-export default CreateSubject;
+
+export default UpdateTask;

@@ -4,43 +4,79 @@ import Pencil from "../../UI/icons/pencil/Pencil";
 import Trash from "../../UI/icons/trash/Trash";
 import SubjectTitle from "../../SubjectTitle";
 import Text from "../../Text";
+import {useState} from "react";
+import Modal from "../../UI/Modal/Modal";
+import UpdateTask from "../UpdateTask/UpdateTask";
+import Grade from "../Grade/Grade";
+import {FieldValues} from "react-hook-form";
+import Date from "../Date/Date";
 
 import style from "./Task.module.css";
 
 interface Props {
-  task: ITask;
+    task: ITask;
+    onUpdateTask: (task: FieldValues) => void
 }
 
-const Task = ({ task }: Props) => {
-  console.log(task);
-  console.log(task.subject.color);
-  return (
-    <div className={style.task}>
-      <SubjectTitle color={task.subject.color}>{task.name}</SubjectTitle>
-      <div className={style.deadline}>
-        <Text color="grey">{task.deadline}</Text>
-      </div>
-      <div className={style.grade}>
-        <Text color="grey">
-          {task.grade === 1 && task.grade + " бал"}
-          {task.grade > 1 && task.grade < 5 && task.grade + " бали"}
-          {task.grade >= 5 && task.grade + "  балів"}
-        </Text>
-      </div>
+const Task = ({task, onUpdateTask}: Props) => {
+    const [isModalActive, setModalActive]= useState(false);
+    return (
+        <>
+            <div className={style.task}>
+                <SubjectTitle color={task.subject.color}>{task.name}</SubjectTitle>
+                <div className={style.deadline}>
+                    <Text color="grey">
+                      <Date date={task.deadline}/>
+                    </Text>
+                </div>
+                <Grade grade={task.points}/>
+                <div className={style.icons}>
+                    <div
+                        className={style.icon}
+                        // onClick={}
+                    >
+                        <Check
+                            color={"#FFFFFF"}
+                            backgroundColor={"#00C792"}
+                        />
+                    </div>
+                    <div
+                        className={style.icon}
+                        onClick={() => setModalActive(true)}
+                    >
+                        <Pencil
+                            color={"#666666"}
+                            backgroundColor={"#F5F8FB"}
 
-      <div className={style.icons}>
-        <div className={style.icon}>
-          <Check color={"#FFFFFF"} backgroundColor={"#00C792"} />
-        </div>
-        <div className={style.icon}>
-          <Pencil color={"#666666"} backgroundColor={"#F5F8FB"} />
-        </div>
-        <div className={style.icon}>
-          <Trash color={"#FFFFFF"} backgroundColor={"#E12626"} />
-        </div>
-      </div>
-    </div>
-  );
+                        />
+                    </div>
+                    <div
+                        className={style.icon}
+                        onClick={() => console.log("Delete")}
+                    >
+                        <Trash
+                            color={"#FFFFFF"}
+                            backgroundColor={"#E12626"}
+                        />
+                    </div>
+                </div>
+            </div>
+            <Modal
+                isActive={isModalActive}
+                onClose={() => setModalActive(false)}
+                title={"Редагування завдання"}>
+                <UpdateTask
+                    task={task}
+                    onSubmit={(t) => {
+                        setModalActive(false)
+                        t.id = task.id
+                        onUpdateTask(t)
+                        console.log(t);
+                    }}
+                />
+            </Modal>
+        </>
+    );
 };
 
 export default Task;
