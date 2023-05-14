@@ -3,10 +3,20 @@ import { FieldValues, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../../UI/Button";
 import FormFormat, { schema } from "../Schema/schema";
+import { useState } from "react";
 
 interface Props {
   onSubmit: (subject: FieldValues) => void;
 }
+
+const colors = [
+  "#0066F1",
+  "#E12626",
+  "#00C792",
+  "#8FCB54",
+  "#CFF100",
+  "#C100F1",
+];
 
 const CreateSubject = ({ onSubmit }: Props) => {
   const {
