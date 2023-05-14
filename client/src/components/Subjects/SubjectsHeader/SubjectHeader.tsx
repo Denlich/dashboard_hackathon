@@ -1,6 +1,5 @@
 import style from "./SubjectHeader.module.css";
 import {AiOutlinePlus} from "react-icons/all";
-import {Box, Modal, Typography} from "@mui/material";
 import {useState} from "react";
 
 interface Props {
@@ -10,7 +9,6 @@ interface Props {
 }
 
 const SubjectHeader = ({quantity, totalName, adderName}: Props) => {
-    const [isActive, setActive] = useState(false);
 
     return (
         <>
