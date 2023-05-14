@@ -1,0 +1,25 @@
+.header{
+    margin-bottom: 25px;
+    font-family: "Roboto";
+    display: flex;
+    color: #666666;
+    align-items: center;
+}
+
+.total{
+    flex: 1 1 auto;
+}
+.add{
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.add:hover{
+    color: #E12626;
+    transition: .3s;
+}
+.addName{
+    cursor: pointer;
+    margin-right: 10px;
+}
