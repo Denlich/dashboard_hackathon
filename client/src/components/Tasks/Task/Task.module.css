@@ -1,0 +1,29 @@
+.task {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icon {
+    margin-left: 20px;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+}
+
+.right {
+    display: flex;
+}
+
+.center {
+    text-align: center;
+}
