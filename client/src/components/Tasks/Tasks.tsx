@@ -2,14 +2,10 @@ import style from "./Tasks.module.css";
 import taskItems from "../../data/tasks";
 import Task from "./Task/Task";
 import SubjectHeader from "../Subjects/SubjectsHeader";
+import { ITask } from "../../common/enitity/ITask";
 
 
-interface ITask {
-    id: number;
-    name: string;
-    deadline: string;
-    grade: number;
-}
+
 
 const Tasks = () => {
     const tasks: ITask[] = taskItems;

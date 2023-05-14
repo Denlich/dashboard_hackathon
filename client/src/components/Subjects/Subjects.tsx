@@ -2,12 +2,8 @@ import style from "./Subjects.module.css";
 import subjectsItems from "../../data/subjects";
 import Subject from "./Subject";
 import SubjectsHeader from "./SubjectsHeader";
-interface ISubject{
-    name: string;
-    desc: string;
-    totalGrade: number,
-    currGrade: number,
-}
+import { ISubject } from "../../common/enitity/ISubject";
+
 
 const Subjects = () => {
     const subjects: ISubject[]  = subjectsItems
@@ -15,10 +11,12 @@ const Subjects = () => {
     return (
         <div className={style.subjects}>
             <SubjectsHeader
-                quantity={subjects.length - 1}
+                quantity={subjects.length}
+                totalName={"Усього:"}
+                adderName={"Додати предмет"}
             />
             <div className={style.subjectsList}>
-                {subjects.map(item => <Subject subject={item}/>)}
+                {subjects.map(item => <Subject key={item.id} subject={item}/>)}
             </div>
         </div>
     );
