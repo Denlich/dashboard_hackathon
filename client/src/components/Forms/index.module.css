@@ -1,0 +1,22 @@
+/* waiting for refactoring */
+.form {
+  border-radius: 0;
+  display: grid;
+  row-gap: 15px;
+  width: auto;
+  margin-top: 25px;
+  width: 500px;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBox > p {
+  margin-bottom: 10px;
+}
+
+.form > p > a {
+  color: #0066F1
+}

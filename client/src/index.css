@@ -18,3 +18,18 @@ a {
   color: #000;
   text-decoration: none;
 }
+
+input {
+  background-color: #F5F8FB;
+  border: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: 'Roboto', sans-serif;
+  padding: 15px 25px;
+  border-radius: 15px;
+}
+
+input:focus {
+  outline: none;
+}
