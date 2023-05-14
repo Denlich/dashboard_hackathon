@@ -1,0 +1,15 @@
+.button {
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.blue {
+    background: #0066F1;
+}
+
+.red {
+    background: #E12626;
+}

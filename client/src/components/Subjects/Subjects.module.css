@@ -1,0 +1,10 @@
+.subjects{
+    background: #F5F8FB;
+    padding: 25px;
+    font-size: 18px;
+    border-radius: 25px;
+}
+.subjectsList{
+    display: flex;
+    flex-wrap: wrap;
+}
