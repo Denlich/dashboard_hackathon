@@ -9,10 +9,13 @@ interface Props {
     adderName: string;
     modalTitle: string;
     children: ReactNode;
+    onModalOpen: () => void;
+    onModalClose: () => void;
+    isActive:boolean;
 }
 
-const SubjectHeader = ({ quantity, totalName, adderName, modalTitle, children }: Props) => {
-  const [isActive, setActive] = useState(false);
+const SubjectHeader = ({ quantity, totalName, adderName, modalTitle, children, onModalOpen, isActive, onModalClose }: Props) => {
+
   return (
     <>
       <div className={style.header}>
@@ -23,7 +26,7 @@ const SubjectHeader = ({ quantity, totalName, adderName, modalTitle, children }:
         )}
         <div
             className={style.add}
-            onClick={() => setActive(true)}
+            onClick={onModalOpen}
         >
           <div className={style.addName}>{adderName}</div>
           <AiOutlinePlus size="20" />
@@ -31,7 +34,7 @@ const SubjectHeader = ({ quantity, totalName, adderName, modalTitle, children }:
       </div>
       <Modal
         isActive={isActive}
-        onClose={() => setActive(false)}
+        onClose={onModalClose}
         title={modalTitle}
       >
           {children}
