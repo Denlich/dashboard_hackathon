@@ -1,10 +1,14 @@
-import Subject from "../Subject";
+import SubjectTitle from "../SubjectTitle";
+import SubjectHeader from "../Subjects/SubjectsHeader";
 
 const Subjects = () => {
   return (
     <ul>
       <li>
-        <Subject>Усі предмети</Subject>
+        <SubjectHeader adderName="Додати предмет" />
+      </li>
+      <li>
+        <SubjectTitle>Усі предмети</SubjectTitle>
       </li>
     </ul>
   );

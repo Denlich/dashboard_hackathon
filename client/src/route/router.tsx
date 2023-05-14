@@ -1,13 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
-import Layout from "../components/Layout";
 import HomePage from "../pages/HomePage/HomePage";
 import SubjectPage from "../pages/SubjectPage/SubjectPage";
 import { RegistrationPage, LoginPage } from "../pages/AuthPages";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Layout />,
+    element: <PrivateRoutes />,
     children: [
       { path: "/", element: <HomePage /> },
       { path: "/subjects/:name", element: <SubjectPage /> },
