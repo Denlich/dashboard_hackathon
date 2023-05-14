@@ -1,17 +1,19 @@
 import style from "./SubjectHeader.module.css";
-import {displayValue} from "@tanstack/react-query-devtools/build/lib/utils";
 import {AiOutlinePlus} from "react-icons/all";
+
 interface Props {
-    quantity: number,
+    quantity: number;
+    totalName: string;
+    adderName: string;
 }
 
-const SubjectHeader = ({quantity}: Props) => {
+const SubjectHeader = ({quantity, totalName, adderName}: Props) => {
     return (
         <>
             <div className={style.header}>
-                <div className={style.total}>Усього: {quantity}</div>
+                <div className={style.total}>{totalName} {quantity}</div>
                 <div className={style.add}>
-                        <div className={style.addName}>Додати предмет</div>
+                        <div className={style.addName}>{adderName}</div>
                     <AiOutlinePlus size="20"/>
                 </div>
             </div>
