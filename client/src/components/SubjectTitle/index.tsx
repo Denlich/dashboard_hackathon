@@ -6,11 +6,15 @@ import styles from "./index.module.css";
 interface Props {
   children: string;
   color?: string;
+  id?: number;
 }
 
-const index = ({ children, color = "#fff" }: Props) => {
+const index = ({ children, color = "#fff", id }: Props) => {
   return (
-    <Link to="/" className={styles.subject}>
+    <Link
+      to={id != undefined ? `/subjects/${id}` : `/subjects/all`}
+      className={styles.subject}
+    >
       <div className={styles.circle} style={{ background: color }} />
       <Text>{children}</Text>
     </Link>
