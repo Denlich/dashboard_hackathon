@@ -1,5 +1,7 @@
 import {Link} from "react-router-dom";
 import Subheader from "../../components/Subheader/subheader";
+import Subjects from "../../components/Subjects";
+
 enum Options {
     ASC_NAME = "Назва а-я",
     DESC_NAME = "Назва я-а",
@@ -11,7 +13,7 @@ const HomePage = () => {
     return (
         <>
             <Subheader heading="Усі предмети" options={options}/>
-
+            <Subjects/>
             <Link to="/subjects/op">OP</Link>
         </>
     );

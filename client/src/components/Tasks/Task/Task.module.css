@@ -1,0 +1,30 @@
+.task {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    margin: 25px;
+    padding: 25px;
+    border-radius: 25px;
+
+}
+
+.icons {
+    display: flex;
+}
+
+.icon {
+    margin-left: 20px;
+}
+
+.name {
+    display: flex;
+    align-items: center;
+}
+
+.circle {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background: black;
+    margin-right: 10px;
+}
