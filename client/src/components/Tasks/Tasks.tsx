@@ -1,4 +1,3 @@
-import style from "./Tasks.module.css";
 import taskItems from "../../data/tasks";
 import Task from "./Task/Task";
 import SubjectHeader from "../Subjects/SubjectsHeader";
@@ -6,10 +5,7 @@ import { ITask } from "../../common/enitity/ITask";
 import CreateTask from "./CreateTask/CreateTask";
 import {useState} from "react";
 
-
-
-
-
+import style from "./Tasks.module.css";
 
 const Tasks = () => {
     const [tasks, setTasks] =  useState(taskItems);
@@ -31,15 +27,18 @@ const Tasks = () => {
                         setActive(false)
                     }}/>
                 </SubjectHeader>
-                {tasks.map(task => <Task
-                    key={task.id}
-                    task={task}
-                    onUpdateTask={(task) =>  setTasks(tasks.map(t => t.id ===(task as ITask).id ? (task as ITask): t))}
-                />)}
+                <div className={style.tasksContainer}>
+                  {tasks.map((task) => (
+                    <Task 
+                      key={task.id} 
+                      task={task} 
+                      onUpdateTask={(task) =>  setTasks(tasks.map(t => t.id ===(task as ITask).id ? (task as ITask): t))}
+                    />
+                  ))}
+                </div>
             </div>
     );
-
 };
 
 export default Tasks;
-export type {ITask};
+export type { ITask };

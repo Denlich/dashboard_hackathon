@@ -8,4 +8,4 @@ interface ITask {
     isChecked: boolean;
     subject?: ISubject;
 }
-export type {ITask}
+export type { ITask };

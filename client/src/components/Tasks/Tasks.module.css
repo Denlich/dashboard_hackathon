@@ -5,6 +5,7 @@
     font-size: 18px;
 }
 
-.tasks{
-
+.tasksContainer {
+    display: grid;
+    row-gap: 25px;
 }

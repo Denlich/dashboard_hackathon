@@ -1,14 +1,17 @@
-import style from "./Task.module.css";
-import {ITask} from "../Tasks";
+import { ITask } from "../Tasks";
 import Check from "../../UI/icons/check/Check";
 import Pencil from "../../UI/icons/pencil/Pencil";
 import Trash from "../../UI/icons/trash/Trash";
+import SubjectTitle from "../../SubjectTitle";
+import Text from "../../Text";
 import {useState} from "react";
 import Modal from "../../UI/Modal/Modal";
 import UpdateTask from "../UpdateTask/UpdateTask";
 import Grade from "../Grade/Grade";
 import {FieldValues} from "react-hook-form";
 import Date from "../Date/Date";
+
+import style from "./Task.module.css";
 
 interface Props {
     task: ITask;
@@ -20,12 +23,11 @@ const Task = ({task, onUpdateTask}: Props) => {
     return (
         <>
             <div className={style.task}>
-                <div className={style.name}>
-                    <div className={style.circle}></div>
-                    {task.name}
-                </div>
+                <SubjectTitle color={task.subject.color}>{task.name}</SubjectTitle>
                 <div className={style.deadline}>
-                    <Date date={task.deadline}/>
+                    <Text color="grey">
+                      <Date date={task.deadline}/>
+                    </Text>
                 </div>
                 <Grade grade={task.points}/>
                 <div className={style.icons}>
@@ -74,7 +76,6 @@ const Task = ({task, onUpdateTask}: Props) => {
                 />
             </Modal>
         </>
-
     );
 };
 
