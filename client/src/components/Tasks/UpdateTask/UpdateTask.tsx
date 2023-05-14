@@ -23,7 +23,11 @@ const UpdateTask = ({task}: Props) => {
 
     return (
         <>
-            <form onSubmit={handleSubmit(onSubmit)} className={style.form}>
+            <form
+                onSubmit={handleSubmit(onSubmit)}
+                className={style.form}
+                noValidate
+            >
                 {errors.name && <div className={style.error}>{errors.name.message}</div>}
                 <div className={style.raw}>
                     <span className={style.label}>{task.name}</span>
@@ -59,7 +63,7 @@ const UpdateTask = ({task}: Props) => {
                     />
                 </div>
 
-                <Button color="blue" onClick={() => console.log("Обновити")}>Обновити</Button>
+                <Button color="blue" handleClick={() => console.log("Обновити")}>Обновити</Button>
             </form>
         </>
     );
