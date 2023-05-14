@@ -1,18 +1,8 @@
 import style from "../../Subjects/CreateSubject/CreateSubject.module.css"
 import {FieldValues, useForm} from "react-hook-form";
-import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import Button from "../../UI/Button";
-
-const schema = z.object({
-    name: z.string().min(2, {message: "Назва повинна містити не менше двох символів"})
-        .max(200, {message: "Максимальна границя: 200 символів"}),
-    deadline: z.string().min(2, {message: "Опис повинен містити не менше 2 символів"})
-        .max(400, {message: "Максимальна границя: 100 символів"}),
-    grade: z.number({invalid_type_error: "Формат не вірний"}).min(0, {message: "Це повинно бути додатнє число"})
-});
-
-type FormFormat = z.infer<typeof schema>
+import FormFormat, {schema} from "../Schema/schema";
 
 const CreateSubject = () => {
     const onSubmit = (subject: FieldValues) => {
