@@ -1,6 +1,7 @@
 .grid {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  column-gap: 25px;
   margin: 25px 0;
 }
 
@@ -9,17 +10,13 @@
   width: 100%;
   overflow: hidden;
   border-radius: 999px;
-  align-items: center;
-  margin-right: 15%;
 }
 
 
 .button {
   background-color: #F5F8FB;
   border: none;
-  padding: 14px 25px;
-
-
+  padding: 15px 25px;
 }
 
 
@@ -29,7 +26,7 @@ input[type="search"] {
   background-color: #F5F8FB;
   color: #000;
   border: none;
-  padding: 14px 25px 14px 0px;
+  border-radius: 0;
 }
 
 input[type="search"]:focus {

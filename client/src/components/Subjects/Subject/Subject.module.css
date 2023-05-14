@@ -14,6 +14,7 @@
 .titleWrapper {
     margin-bottom: 25px;
     display: flex;
+    justify-content: space-between;
 }
 
 .title {
@@ -48,3 +49,6 @@
     flex: 1 1 auto;
 }
 
+.row {
+    display: flex;
+}
