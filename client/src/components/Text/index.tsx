@@ -1,11 +1,13 @@
+import { ReactNode } from "react";
 import styles from "./index.module.css";
 
 interface Props {
-  children: string;
+  children: ReactNode;
+  color?: "black" | "grey" | "red";
 }
 
-const index = ({ children }: Props) => {
-  return <p className={styles.text}>{children}</p>;
+const index = ({ children, color = "black" }: Props) => {
+  return <p className={styles.text + " " + styles[color]}>{children}</p>;
 };
 
 export default index;
