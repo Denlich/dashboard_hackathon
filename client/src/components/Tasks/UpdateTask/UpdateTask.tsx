@@ -5,6 +5,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import {ITask} from "../../../common/enitity/ITask";
 import Grade from "../Grade/Grade";
 import FormFormat, {schema} from "../Schema/schema";
+import Date from "../Date/Date";
 
 interface Props {
     task: ITask;
@@ -39,27 +40,23 @@ const UpdateTask = ({task, onSubmit}: Props) => {
 
                 {errors.deadline && <div className={style.error}>{errors.deadline.message}</div>}
                 <div className={style.raw}>
-                    <span className={style.label}>{task.deadline}</span>
+                    <span className={style.label}><Date date={task.deadline}/></span>
                     <input
+                        type="date"
                         {...register("deadline")}
                         className={style.input}
-                        type="text"
-                        placeholder="Введіть новий дедлайн"
-                        formNoValidate
-                        // value={task.deadline}
+                        placeholder="Введіть назву"
                     />
                 </div>
 
-                {errors.grade && <div className={style.error}>{errors.grade?.message}</div>}
+                {errors.points && <div className={style.error}>{errors.points?.message}</div>}
                 <div className={style.raw}>
-                    <span className={style.label}><Grade grade={task.grade}/></span>
+                    <span className={style.label}><Grade grade={task.points}/></span>
                     <input
-                        {...register("grade", {valueAsNumber: true})}
+                        {...register("points", {valueAsNumber: true})}
                         className={style.input}
                         type="number"
                         placeholder="Введіть нову оцінку"
-                        formNoValidate={true}
-                        // value={task.grade}
                     />
                 </div>
 

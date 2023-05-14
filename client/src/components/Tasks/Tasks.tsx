@@ -10,6 +10,7 @@ import {useState} from "react";
 
 
 
+
 const Tasks = () => {
     const [tasks, setTasks] =  useState(taskItems);
     const [isActive, setActive] = useState(false);
@@ -18,7 +19,7 @@ const Tasks = () => {
                 <SubjectHeader
                     quantity={tasks.length}
                     totalName={"Зробити: "}
-                    adderName={"Додати завданнь"}
+                    adderName={"Додати завдання"}
                     modalTitle={"Нове завдання"}
                     isActive={isActive}
                     onModalOpen={() => setActive(true)}
@@ -33,11 +34,11 @@ const Tasks = () => {
                 {tasks.map(task => <Task
                     key={task.id}
                     task={task}
-                    onUpdateTask={(task) =>
-                        setTasks(tasks.map(t => t.id ===(task as ITask).id ? (task as ITask): t))}
+                    onUpdateTask={(task) =>  setTasks(tasks.map(t => t.id ===(task as ITask).id ? (task as ITask): t))}
                 />)}
             </div>
     );
+
 };
 
 export default Tasks;

@@ -8,7 +8,7 @@ import Modal from "../../UI/Modal/Modal";
 import UpdateTask from "../UpdateTask/UpdateTask";
 import Grade from "../Grade/Grade";
 import {FieldValues} from "react-hook-form";
-
+import Date from "../Date/Date";
 
 interface Props {
     task: ITask;
@@ -25,9 +25,9 @@ const Task = ({task, onUpdateTask}: Props) => {
                     {task.name}
                 </div>
                 <div className={style.deadline}>
-                    {task.deadline}
+                    <Date date={task.deadline}/>
                 </div>
-                <Grade grade={task.grade}/>
+                <Grade grade={task.points}/>
                 <div className={style.icons}>
                     <div
                         className={style.icon}
