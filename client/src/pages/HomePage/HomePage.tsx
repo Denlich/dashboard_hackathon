@@ -19,7 +19,6 @@ const HomePage = () => {
     <>
       <Subheader heading="Усі предмети" options={options} />
       <Subjects />
-      <Link to="/subjects/op">OP</Link>
     </>
   );
 };

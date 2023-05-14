@@ -1,4 +1,4 @@
-import {ITask} from "../common/enitity/ITask";
+import { ITask } from "../common/enitity/ITask";
 import subjects from "./subjects";
 
 export const tasks: ITask[] = [
@@ -7,6 +7,7 @@ export const tasks: ITask[] = [
     name: "ДКР-10",
     deadline: new Date(),
     grade: 5,
+    isChecked: false,
     subject: subjects[0],
   },
   {
@@ -14,6 +15,7 @@ export const tasks: ITask[] = [
     name: "Лаба-9",
     deadline: new Date(),
     grade: 4,
+    isChecked: false,
     subject: subjects[1],
   },
   {
@@ -21,6 +23,7 @@ export const tasks: ITask[] = [
     name: "Лаба-9",
     deadline: new Date(),
     grade: 6,
+    isChecked: false,
     subject: subjects[2],
   },
   {
@@ -28,6 +31,7 @@ export const tasks: ITask[] = [
     name: "ДКР-10",
     deadline: new Date(),
     grade: 5,
+    isChecked: false,
     subject: subjects[3],
   },
   {
@@ -35,8 +39,9 @@ export const tasks: ITask[] = [
     name: "ДКР-10",
     deadline: new Date(),
     grade: 5,
+    isChecked: false,
     subject: subjects[4],
   },
 ];
 
-export default tasks
+export default tasks;
