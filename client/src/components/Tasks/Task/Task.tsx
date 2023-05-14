@@ -7,13 +7,15 @@ import {useState} from "react";
 import Modal from "../../UI/Modal/Modal";
 import UpdateTask from "../UpdateTask/UpdateTask";
 import Grade from "../Grade/Grade";
+import {FieldValues} from "react-hook-form";
 
 
 interface Props {
     task: ITask;
+    onUpdateTask: (task: FieldValues) => void
 }
 
-const Task = ({task}: Props) => {
+const Task = ({task, onUpdateTask}: Props) => {
     const [isModalActive, setModalActive]= useState(false);
     return (
         <>
@@ -63,6 +65,12 @@ const Task = ({task}: Props) => {
                 title={"Редагування завдання"}>
                 <UpdateTask
                     task={task}
+                    onSubmit={(t) => {
+                        setModalActive(false)
+                        t.id = task.id
+                        onUpdateTask(t)
+                        console.log(t);
+                    }}
                 />
             </Modal>
         </>

@@ -4,10 +4,11 @@ import {zodResolver} from "@hookform/resolvers/zod";
 import Button from "../../UI/Button";
 import FormFormat, {schema} from "../Schema/schema";
 
-const CreateSubject = () => {
-    const onSubmit = (subject: FieldValues) => {
-        console.log(subject);
-    };
+interface Props {
+    onSubmit: (subject: FieldValues) => void;
+}
+
+const CreateSubject = ({onSubmit}: Props) => {
 
     const {
         register,

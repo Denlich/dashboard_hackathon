@@ -1,4 +1,9 @@
-export default [
+import {ITask} from "../common/enitity/ITask";
+
+
+
+
+const tasks: ITask[] = [
     {
         id:1,
         name: "ДКР-10",
@@ -29,3 +34,5 @@ export default [
         grade: 5,
     }
 ]
+
+export default tasks

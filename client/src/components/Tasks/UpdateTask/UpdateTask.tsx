@@ -8,12 +8,10 @@ import FormFormat, {schema} from "../Schema/schema";
 
 interface Props {
     task: ITask;
+    onSubmit: (subject: FieldValues) => void;
 }
 
-const UpdateTask = ({task}: Props) => {
-    const onSubmit = (subject: FieldValues) => {
-        console.log(subject);
-    };
+const UpdateTask = ({task, onSubmit}: Props) => {
 
     const {
         register,
@@ -48,6 +46,7 @@ const UpdateTask = ({task}: Props) => {
                         type="text"
                         placeholder="Введіть новий дедлайн"
                         formNoValidate
+                        // value={task.deadline}
                     />
                 </div>
 
@@ -60,6 +59,7 @@ const UpdateTask = ({task}: Props) => {
                         type="number"
                         placeholder="Введіть нову оцінку"
                         formNoValidate={true}
+                        // value={task.grade}
                     />
                 </div>
 
