@@ -9,7 +9,7 @@ const schema = z.object({
         .max(200, {message: "Максимальна границя: 200 символів"}),
     desc: z.string().min(10, {message: "Опис повинен містити не менше 10 символів"})
         .max(400, {message: "Максимальна границя: 400 символів"}),
-    grade: z.number().min(0, {message: "Це повинне бути додатнє число"})
+    grade: z.number({invalid_type_error: "Формат не вірний"}).min(0, {message: "Це повинне бути додатнє число"})
 });
 
 type FormFormat = z.infer<typeof schema>
@@ -47,10 +47,11 @@ const CreateSubject = () => {
                         className={style.input}
                         type="text"
                         placeholder="Введіть назву"
+                        formNoValidate
                     />
                 </div>
 
-                {errors.name && <div className={style.error}>{errors.grade?.message}</div>}
+                {errors.grade && <div className={style.error}>{errors.grade?.message}</div>}
                 <div className={style.raw}>
                     <span className={style.label}>Максимум балів</span>
                     <input
@@ -58,6 +59,7 @@ const CreateSubject = () => {
                         className={style.input}
                         type="number"
                         placeholder="Введіть число"
+                        formNoValidate={true}
                     />
                 </div>
 
