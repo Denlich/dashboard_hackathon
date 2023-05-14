@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
+import {ReactNode} from "react";
 import style from "./button.module.css";
 
 interface Props {
   children: ReactNode;
   color: "blue" | "red";
-  handleClick: () => void;
+  handleClick?: () => void;
 }
 
 const Button = ({ children, color, handleClick }: Props) => {

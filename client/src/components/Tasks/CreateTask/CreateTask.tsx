@@ -1,18 +1,8 @@
-import style from "./CreateSubject.module.css";
+import style from "../../Subjects/CreateSubject/CreateSubject.module.css"
 import {FieldValues, useForm} from "react-hook-form";
-import {z} from "zod";
 import {zodResolver} from "@hookform/resolvers/zod";
 import Button from "../../UI/Button";
-
-const schema = z.object({
-    name: z.string().min(2, {message: "Назва повинна містити не менше двох символів"})
-        .max(200, {message: "Максимальна границя: 200 символів"}),
-    desc: z.string().min(10, {message: "Опис повинен містити не менше 10 символів"})
-        .max(400, {message: "Максимальна границя: 400 символів"}),
-    grade: z.number({invalid_type_error: "Формат не вірний"}).min(0, {message: "Це повинне бути додатнє число"})
-});
-
-type FormFormat = z.infer<typeof schema>
+import FormFormat, {schema} from "../Schema/schema";
 
 const CreateSubject = () => {
     const onSubmit = (subject: FieldValues) => {
@@ -39,29 +29,31 @@ const CreateSubject = () => {
                     />
                 </div>
 
-                {errors.desc && <div className={style.error}>{errors.desc.message}</div>}
+                {errors.deadline && <div className={style.error}>{errors.deadline.message}</div>}
                 <div className={style.raw}>
-                    <span className={style.label}>Опис</span>
+                    <span className={style.label}>Дедлайн</span>
                     <input
-                        {...register("desc")}
+                        {...register("deadline")}
                         className={style.input}
                         type="text"
                         placeholder="Введіть назву"
+                        formNoValidate
                     />
                 </div>
 
                 {errors.grade && <div className={style.error}>{errors.grade?.message}</div>}
                 <div className={style.raw}>
-                    <span className={style.label}>Максимум балів</span>
+                    <span className={style.label}>Бал</span>
                     <input
                         {...register("grade", {valueAsNumber: true})}
                         className={style.input}
                         type="number"
                         placeholder="Введіть число"
+                        formNoValidate={true}
                     />
                 </div>
 
-                <Button color="blue" handleClick={() => console.log("adsasd")}>Створити</Button>
+                <Button color="blue">Створити</Button>
             </form>
         </>
     );
