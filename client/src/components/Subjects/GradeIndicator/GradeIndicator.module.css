@@ -1,0 +1,23 @@
+.indicator{
+    height: 10px;
+    width: 100%;
+    background: #F5F8FB;
+    border-radius: 10px;
+    position: relative;
+}
+
+.info {
+    display: flex;
+    color: #666666;
+    margin-bottom: 10px;
+}
+.label {
+    flex: 1 1 80%;
+}
+.progress {
+    height: 10px;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

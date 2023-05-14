@@ -2,7 +2,7 @@ import SearchBox from "./SearchBox";
 
 import styles from "./index.module.css";
 
-const index = () => {
+const header = () => {
   return (
     <header className={styles.grid}>
       <SearchBox />
@@ -10,4 +10,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default header;
