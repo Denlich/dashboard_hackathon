@@ -4,15 +4,15 @@ import style from "./button.module.css";
 interface Props {
     children: ReactNode,
     color: "blue" | "red",
-    handleClick: () => void
+    onClick: () => void
 }
 
 
-const Button = ({children, color, handleClick}: Props) => {
+const Button = ({children, color, onClick}: Props) => {
     return(
         <>
             <button
-                onClick={handleClick}
+                onClick={onClick}
                 className={style.button + " " + style[color]}
             >
                 {children}
