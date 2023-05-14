@@ -2,7 +2,6 @@ import style from "./Subject.module.css";
 import {ISubject} from "../Subjects";
 import GradeIndicator from "../GradeIndicator";
 import Check from "../../UI/icons/check/Check";
-import Trash from "../../UI/icons/trash/Trash";
 import Pencil from "../../UI/icons/pencil/Pencil";
 interface Props {
     subject: ISubject
