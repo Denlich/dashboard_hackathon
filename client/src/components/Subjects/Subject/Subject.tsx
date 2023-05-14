@@ -3,17 +3,19 @@ import {ISubject} from "../Subjects";
 import GradeIndicator from "../GradeIndicator";
 import Check from "../../UI/icons/check/Check";
 import Pencil from "../../UI/icons/pencil/Pencil";
+import {useState} from "react";
 interface Props {
     subject: ISubject
 }
 
 const Subject = ({subject}: Props) => {
+    let [color, setColor] = useState("")
     return (
         <div className={style.subject}>
             <div className={style.wrapper}>
                 <div className={style.titleWrapper}>
                     <div className={style.title}>
-                        <div className={style.circle}></div>
+                        <div className={style.circle} style={{backgroundColor: color}}></div>
                         {subject.name}
                     </div>
                     <div className={style.icon}>
@@ -33,6 +35,7 @@ const Subject = ({subject}: Props) => {
             <GradeIndicator
                 totalGrade={subject.totalGrade}
                 currGrade={subject.currGrade}
+                onColor={color => setColor(color)}
             />
         </div>
     )
