@@ -3,6 +3,7 @@ import taskItems from "../../data/tasks";
 import Task from "./Task/Task";
 import SubjectHeader from "../Subjects/SubjectsHeader";
 import { ITask } from "../../common/enitity/ITask";
+import CreateTask from "./CreateTask/CreateTask";
 
 
 
@@ -15,7 +16,10 @@ const Tasks = () => {
                     quantity={tasks.length}
                     totalName={"Зробити: "}
                     adderName={"Додати завданнь"}
-                />
+                    modalTitle={"Нове завдання"}
+                >
+                    <CreateTask/>
+                </SubjectHeader>
                 {tasks.map(task => <Task key={task.id} task={task}/>)}
             </div>
     );
