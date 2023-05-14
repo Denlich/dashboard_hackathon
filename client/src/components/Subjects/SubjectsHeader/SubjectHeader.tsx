@@ -1,17 +1,21 @@
 import style from "./SubjectHeader.module.css";
 import { AiOutlinePlus } from "react-icons/all";
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import Modal from "../../UI/Modal/Modal";
-import CreateSubject from "../CreateSubject/CreateSubject";
 
 interface Props {
-  quantity?: number;
-  totalName?: string;
-  adderName: string;
+    quantity: number;
+    totalName: string;
+    adderName: string;
+    modalTitle: string;
+    children: ReactNode;
+    onModalOpen: () => void;
+    onModalClose: () => void;
+    isActive:boolean;
 }
 
-const SubjectHeader = ({ quantity, totalName, adderName }: Props) => {
-  const [isActive, setActive] = useState(false);
+const SubjectHeader = ({ quantity, totalName, adderName, modalTitle, children, onModalOpen, isActive, onModalClose }: Props) => {
+
   return (
     <>
       <div className={style.header}>
@@ -20,17 +24,20 @@ const SubjectHeader = ({ quantity, totalName, adderName }: Props) => {
             {totalName} {quantity}
           </div>
         )}
-        <div className={style.add}>
+        <div
+            className={style.add}
+            onClick={onModalOpen}
+        >
           <div className={style.addName}>{adderName}</div>
           <AiOutlinePlus size="20" />
         </div>
       </div>
       <Modal
         isActive={isActive}
-        onClose={() => setActive(false)}
-        title={"Новий предмет"}
+        onClose={onModalClose}
+        title={modalTitle}
       >
-        <CreateSubject />
+          {children}
       </Modal>
     </>
   );

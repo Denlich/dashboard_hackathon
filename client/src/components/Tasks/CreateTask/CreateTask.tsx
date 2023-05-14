@@ -1,4 +1,4 @@
-import style from "./CreateSubject.module.css";
+import style from "../../Subjects/CreateSubject/CreateSubject.module.css"
 import {FieldValues, useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
 import Button from "../../UI/Button";
@@ -34,25 +34,26 @@ const CreateSubject = ({onSubmit}: Props) => {
                     />
                 </div>
 
-                {errors.desc && <div className={style.error}>{errors.desc.message}</div>}
+                {errors.deadline && <div className={style.error}>{errors.deadline.message}</div>}
                 <div className={style.raw}>
-                    <span className={style.label}>Опис</span>
+                    <span className={style.label}>Дедлайн</span>
                     <input
-                        {...register("desc")}
+                        type="date"
+                        {...register("deadline")}
                         className={style.input}
-                        type="text"
                         placeholder="Введіть назву"
                     />
                 </div>
 
-                {errors.grade && <div className={style.error}>{errors.grade?.message}</div>}
+                {errors.points && <div className={style.error}>{errors.points.message}</div>}
                 <div className={style.raw}>
-                    <span className={style.label}>Максимум балів</span>
+                    <span className={style.label}>Бал</span>
                     <input
-                        {...register("grade", {valueAsNumber: true})}
+                        {...register("points", {valueAsNumber: true})}
                         className={style.input}
                         type="number"
                         placeholder="Введіть число"
+                        formNoValidate={true}
                     />
                 </div>
 
